@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CopyDirectory": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\dev\\DCSLTest\\CopyDirectory\\A C:\\dev\\DCSLTest\\CopyDirectory\\B"
+    }
+  }
+}
