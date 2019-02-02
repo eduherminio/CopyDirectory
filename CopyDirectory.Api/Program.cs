@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CopyDirectory.Api
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -15,7 +15,7 @@ namespace CopyDirectory.Api
             {
                 IConfiguration configuration = GetConfiguration();
                 Console.WriteLine("Starting CopyDirectory.Api");
-                Console.WriteLine($"API can be consulted at {configuration[(AppSettingsKeys.PublicUrlConfigurationKey)]}/swagger");
+                Console.WriteLine($"API can be consulted at {configuration[AppSettingsKeys.PublicUrlConfigurationKey]}/swagger");
 
                 Task publicApi = BuildWebHost(args, configuration, AppSettingsKeys.PublicUrlConfigurationKey)
                     .RunAsync();

@@ -29,12 +29,11 @@ namespace CopyDirectoryLib.Validators
         {
             string validationErrors = ValidatePath(sourcePath);
 
-            if (validationErrors == string.Empty)
+            if (validationErrors == string.Empty
+                && Directory.Exists(sourcePath)
+                && !Directory.GetFileSystemEntries(sourcePath).Any())
             {
-                if (Directory.Exists(sourcePath) && !Directory.GetFileSystemEntries(sourcePath).Any())
-                {
-                    Logger.Logger.LogWarning($"Source dir {sourcePath} is empty");
-                }
+                Logger.Logger.LogWarning($"Source dir {sourcePath} is empty");
             }
 
             return validationErrors;

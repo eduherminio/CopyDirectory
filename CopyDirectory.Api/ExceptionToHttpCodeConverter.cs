@@ -28,9 +28,8 @@ namespace CopyDirectory.Internal.Exceptions
         {
             AddValues(typeof(UnauthorizedAccessException), HttpStatusCode.Unauthorized, "UnauthorizedAccessException");
             AddValues(typeof(InternalException), HttpStatusCode.InternalServerError, "InternalServerErrorException");
-            AddValues(typeof(CopyingException), HttpStatusCode.ServiceUnavailable,"Copyingexception");
+            AddValues(typeof(CopyingException), HttpStatusCode.ServiceUnavailable, "Copyingexception");
         }
-
 
         public HttpExceptionResponseInfo GetMessageAndHttpCode(Exception exception)
         {

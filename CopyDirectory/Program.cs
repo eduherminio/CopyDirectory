@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace CopyDirectory
 {
-    public class Program
+    public static class Program
     {
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             IServiceProvider serviceProvider = new ServiceCollection()
                 .AddCopyDirectoryServices()
                 .AddSingleton<IConsoleClient, ConsoleClient>()
                 .AddLogging(loggerBuilder =>
-                {
-                    loggerBuilder.AddConsole();
-                })
+                    loggerBuilder.AddConsole())
                 .BuildServiceProvider();
 
             IConsoleClient client = serviceProvider.GetRequiredService<IConsoleClient>();

@@ -20,6 +20,7 @@ namespace CopyDirectoryLib.Logger
             var originalColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"[WARNING] {message}");
+            Console.ForegroundColor = originalColor;
         }
     }
 }

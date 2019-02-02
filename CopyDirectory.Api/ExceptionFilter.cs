@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CopyDirectory.Internal.Exceptions
 {
-    public class ExceptionFilter : ExceptionFilterAttribute
+    public class ExceptionFilterAttribute : Microsoft.AspNetCore.Mvc.Filters.ExceptionFilterAttribute
     {
         private readonly IHostingEnvironment _env;
-        private readonly ILogger<ExceptionFilter> _logger;
+        private readonly ILogger<ExceptionFilterAttribute> _logger;
         protected virtual ExceptionToHttpCodeConverter Converter => new ExceptionToHttpCodeConverter();
 
-        public ExceptionFilter(IHostingEnvironment env, ILogger<ExceptionFilter> logger)
+        public ExceptionFilterAttribute(IHostingEnvironment env, ILogger<ExceptionFilterAttribute> logger)
         {
             _env = env;
             _logger = logger;

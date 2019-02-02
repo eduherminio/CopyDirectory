@@ -17,10 +17,10 @@ namespace CopyDirectoryLib.Test
         private const string _existingDirPath2 = "TestFixtures/existingDir_2/";
         private const string _heavyExistingDirPath = "TestFixtures/heavyExistingDir/";
 
-        private readonly ILogger<CopyService> _mockedLoger  = new Mock<ILogger<CopyService>>().Object;
+        private readonly ILogger<CopyService> _mockedLoger = new Mock<ILogger<CopyService>>().Object;
 
         [Fact]
-        public async void CopyDirectory()
+        public async Task CopyDirectory()
         {
             // Arrange
             const string src = _existingDirPath1;
@@ -37,7 +37,7 @@ namespace CopyDirectoryLib.Test
         }
 
         [Fact]
-        public async void CopyHeavyDirectory()
+        public async Task CopyHeavyDirectory()
         {
             // Arrange
             const string src = _heavyExistingDirPath;
@@ -54,7 +54,7 @@ namespace CopyDirectoryLib.Test
         }
 
         [Fact]
-        public async void CopyFile()
+        public async Task CopyFile()
         {
             // Arrange
             const string src = _existingFilePath;

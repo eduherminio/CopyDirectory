@@ -65,7 +65,6 @@ namespace CopyDirectoryLib.Test
         [Fact]
         public void FileToFile()
         {
-
             const string existingFilePath1 = "TestFixtures/existingFile_1";
             const string existingFilePath2 = "TestFixtures/existingDir_1/somefile1";
 

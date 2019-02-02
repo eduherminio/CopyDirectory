@@ -39,20 +39,22 @@ namespace CopyDirectory.Api.Swagger
                     In = "header",
                     Type = "apiKey"
                 });
+
+                // Allow same class names in different namespaces (https://github.com/domaindrivendev/Swashbuckle/issues/442)
+                c.CustomSchemaIds(x => x.FullName);
+
+                // Set the comments path for the Swagger JSON and UI.
+                //TODO c.IncludeXmlComments(GetXmlCommentsFilePath(assemblyName));
             });
         }
 
         public static void ConfigureSwaggerMvc(this IApplicationBuilder app, string SwaggerDocumentVersion)
         {
             app.UseSwagger(c =>
-            {
-                c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value);
-            });
+                c.PreSerializeFilters.Add((swagger, httpReq) => swagger.Host = httpReq.Host.Value));
 
             app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint($"/swagger/{SwaggerDocumentVersion}/swagger.json", $"{SwaggerDocumentVersion} docs");
-            });
+                c.SwaggerEndpoint($"/swagger/{SwaggerDocumentVersion}/swagger.json", $"{SwaggerDocumentVersion} docs"));
         }
     }
 }

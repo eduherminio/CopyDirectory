@@ -25,7 +25,7 @@ namespace CopyDirectory.Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            SwaggerDocumentVersion = $"v{ApiInfo.ApiVersion.ToString()}";
+            SwaggerDocumentVersion = $"v{ApiInfo.ApiVersion}";
         }
 
         public IConfiguration Configuration { get; }
@@ -51,15 +51,11 @@ namespace CopyDirectory.Api
             services.ConfigureSwaggerMvcServices(SwaggerDocumentVersion, ApiInfo, assemblyName);
 
             services.AddMvc(options =>
-            {
-                options.Filters.Add(typeof(ExceptionFilter));
-            })
+                options.Filters.Add(typeof(ExceptionFilterAttribute)))
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddLogging(loggerBuilder =>
-            {
-                loggerBuilder.AddConsole();
-            });
+                loggerBuilder.AddConsole());
 
             ConfigureSpecificService(services);
         }
