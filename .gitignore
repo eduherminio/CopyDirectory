@@ -260,4 +260,9 @@ paket-files/
 __pycache__/
 *.pyc
 
-Readme.txt
+# .txt files
+*.txt
+
+# Compressed files
+*.7z
+*.zip
